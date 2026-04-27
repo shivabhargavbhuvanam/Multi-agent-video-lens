@@ -171,6 +171,7 @@ def generate_embedding(agent, video_id, base_path):
         raise ValueError(f"Unknown agent '{agent}'")
 
     path = os.path.join(base_path, 'chunks', agent_folder_mapping[agent])
+    os.makedirs(path, exist_ok=True)
     data_array = []
 
     for filename in os.listdir(path):
@@ -219,7 +220,9 @@ class VideoProcessingWorkflow:
                        os.path.join(self.output_dir, "videos"),
                        os.path.join(self.output_dir, "audios"),
                        os.path.join(self.output_dir, "transcripts"),
-                       os.path.join(self.output_dir, "images")]
+                       os.path.join(self.output_dir, "images"),
+                       os.path.join(self.output_dir, "image_captionings"),
+                       os.path.join(self.output_dir, "yolo_outputs")]
         for directory in directories:
             os.makedirs(directory, exist_ok=True)
 
