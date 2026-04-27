@@ -158,5 +158,14 @@ def reset():
     return jsonify({"ok": True})
 
 
+@app.route("/demo-ready", methods=["POST"])
+def demo_ready():
+    with _lock:
+        _state["status"] = "ready"
+        _state["message"] = "Analysis complete!"
+        _state["video_url"] = request.get_json(force=True).get("url", "")
+    return jsonify({"ok": True})
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

@@ -1,5 +1,6 @@
 # Project-specific
 *.mp4
+!demo.mp4
 *.mp3
 *.jpg
 *.png
