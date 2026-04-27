@@ -6,9 +6,13 @@ RUN apt-get update && apt-get install -y \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
+# uv is a Rust-based installer that bypasses pip's resolver entirely
+RUN pip install uv
+
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# --no-deps skips the resolver; all transitive deps are already in the freeze file
+RUN uv pip install --system --no-deps -r requirements.txt
 
 COPY . .
 
