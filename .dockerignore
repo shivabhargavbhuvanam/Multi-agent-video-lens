@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+sources/
+*.mp4
+*.mp3
+*.jpg
+*.png
+.env
+.git/
+demo_tmp/
