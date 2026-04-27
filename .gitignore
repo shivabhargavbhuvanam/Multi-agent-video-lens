@@ -1,0 +1,36 @@
+*.mp4
+*.mp3
+*.txt
+*.jpg
+*.png
+*.pt
+lib
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# VSCode
+.vscode/
+
+# Mac
+.DS_Store
+
+# Logs
+*.log
+
+# SQLite
+*.db
+# Model weights
+*.pt
