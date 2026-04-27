@@ -70,7 +70,7 @@ def _run_pipeline(url: str):
         loop.run_until_complete(wf.split_video_and_audio())
 
         _set("processing", "Running YOLO object detection…")
-        create_yolo_chunks()
+        create_yolo_chunks(video_id=video_id, source=source)
 
         _set("processing", "Generating vector embeddings…")
         generate_embedding("image_captioning", video_id, source)

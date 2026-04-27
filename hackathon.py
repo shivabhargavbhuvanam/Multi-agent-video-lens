@@ -432,8 +432,8 @@ def encode_image(image_path):
         return base64.b64encode(image_file.read()).decode('utf-8')
 
 
-def create_yolo_chunks():
-    path = 'sources/bahubali/chunks/images'
+def create_yolo_chunks(video_id='bahubali', source='sources/bahubali/'):
+    path = os.path.join(source, 'chunks', 'images')
     model = YOLO("yolo11n.pt")
     data = []
     for filename in os.listdir(path):
@@ -445,7 +445,7 @@ def create_yolo_chunks():
         entry = {
             'text': '',
             'timestamp': timestamp,
-            'video_id': 'bahubali',
+            'video_id': video_id,
             'agent': 'yolo'
         }
         text = 'The yolo objects in the frames from timestamp'+timestamp+'to '+timestamp_end
